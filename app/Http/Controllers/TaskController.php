@@ -47,9 +47,11 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Task $task)
     {
-        //
+//        dd($task);
+        return view('tasks.show',compact('task'));
+
     }
 
     /**
@@ -60,7 +62,7 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        //
+        dd($id);
     }
 
     /**
@@ -83,6 +85,6 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Task::where('id',$id)->delete();
     }
 }

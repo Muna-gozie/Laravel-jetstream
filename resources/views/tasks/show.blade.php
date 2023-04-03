@@ -20,7 +20,6 @@
                     </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-                    @foreach($tasks as $task)
                         <tr class="hover:bg-gray-50">
                             <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
                                 <div class="relative h-10 w-10">
@@ -66,7 +65,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div class="flex justify-end gap-4">
-                                    <a x-data="{ tooltip: 'Delete' }" href="{{ route('tasks.show',$task) }}">
+                                    <a x-data="{ tooltip: 'Delete' }" href="{{ route('tasks.show',$task) }}}">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="30" height="30" viewBox="0 0 256 256" xml:space="preserve">
 
 <defs>
@@ -78,7 +77,7 @@
                                             </g>
 </svg>
                                     </a>
-                                    <a x-data="{ tooltip: 'Delete' }" href="{{ route('tasks.destroy',$task->id) }}">
+                                    <a x-data="{ tooltip: 'Delete' }" href="{{ route('tasks.destroy',$task->id) }}}">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
@@ -95,7 +94,7 @@
                                             />
                                         </svg>
                                     </a>
-                                    <a x-data="{ tooltip: 'Edit' }" href="{{ route('tasks.edit',$task->id) }}">
+                                    <a x-data="{ tooltip: 'Edit' }" href="{{ route('tasks.edit',$task) }}">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
@@ -115,7 +114,6 @@
                                 </div>
                             </td>
                         </tr>
-                    @endforeach
 
                     </tbody>
                 </table>
