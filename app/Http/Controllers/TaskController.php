@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreTaskRequest;
+use App\Http\Requests\UpdateTaskRequest;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -27,7 +29,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        return view('tasks.create');
     }
 
     /**
@@ -36,9 +38,11 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTaskRequest $request)
     {
-        //
+        Task::create($request->validated());
+
+        return redirect()->route('tasks.index');
     }
 
     /**
@@ -60,9 +64,10 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($task)
     {
-        dd($id);
+//        dd($task);
+        return \view('tasks.edit',compact('task'));
     }
 
     /**
@@ -72,9 +77,12 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateTaskRequest $request, $task)
     {
-        //
+
+        $task->update($request->validated());
+
+        return redirect()->route('tasks.index');
     }
 
     /**
@@ -85,6 +93,9 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
+//        dd($id);
         Task::where('id',$id)->delete();
+//
+        return redirect()->route('tasks.index');
     }
 }
