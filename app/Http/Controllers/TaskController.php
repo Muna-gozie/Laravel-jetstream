@@ -66,7 +66,6 @@ class TaskController extends Controller
      */
     public function edit($task)
     {
-//        dd($task);
         return \view('tasks.edit',compact('task'));
     }
 
@@ -79,6 +78,8 @@ class TaskController extends Controller
      */
     public function update(UpdateTaskRequest $request, $task)
     {
+        $this->authorize('manage_tasks');
+
         $update_task = Task::find($task);
         $update_task->update($request->validated());
 
@@ -93,7 +94,7 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-//        dd($id);
+        $this->authorize('manage_tasks');
         Task::where('id',$id)->delete();
 //
         return redirect()->route('tasks.index');

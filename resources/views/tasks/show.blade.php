@@ -69,6 +69,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div class="flex justify-end gap-4">
+                                    @can('manage_tasks')
                                     <x-link href="{{ route('tasks.edit', $task) }}">Edit</x-link>
                                     <form method="POST" action="{{ route('tasks.destroy', $task) }}">
                                         @csrf
@@ -78,6 +79,7 @@
                                         </x-danger-button>
 
                                     </form>
+                                    @endcan
                                 </div>
                             </td>
                         </tr>
