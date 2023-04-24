@@ -79,8 +79,8 @@ class TaskController extends Controller
      */
     public function update(UpdateTaskRequest $request, $task)
     {
-
-        $task->update($request->validated());
+        $update_task = Task::find($task);
+        $update_task->update($request->validated());
 
         return redirect()->route('tasks.index');
     }

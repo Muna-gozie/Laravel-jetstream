@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Create Task') }}
+            {{ __('Update Task') }}
         </h2>
     </x-slot>
 
@@ -25,7 +25,7 @@
 
             <div class="mt-4">
                 <x-label for="description" value="{{ __('Description') }}" />
-                <x-input id="description" class="block mt-1 w-full" type="type" name="description" :value="old('description')" required autocomplete="description" />
+                <x-input id="description" class="block mt-1 w-full" type="text" name="description" value="{{ old('description') }}" required autocomplete="description" />
             </div>
 
             <div class="mt-4">
@@ -36,7 +36,7 @@
             <div class="flex items-center justify-end mt-4">
 
                 <x-button class="ml-4">
-                    {{ __('Create') }}
+                    {{ __('Update') }}
                 </x-button>
             </div>
         </form>

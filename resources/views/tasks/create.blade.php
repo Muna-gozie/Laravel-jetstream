@@ -24,7 +24,7 @@
 
             <div class="mt-4">
                 <x-label for="description" value="{{ __('Description') }}" />
-                <x-input id="description" class="block mt-1 w-full" type="type" name="description" :value="old('description')" required autocomplete="description" />
+                <x-input id="description" class="block mt-1 w-full" type="text" name="description" :value="old('description')" required autocomplete="description" />
             </div>
 
             <div class="mt-4">
